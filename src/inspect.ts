@@ -178,14 +178,19 @@ ${getIcon(token, options)}
         // biome-ignore lint/style/noUselessElse: callout can be false
     } else if (callout) {
         return `
-<div class="callout" data-callout="${callout}">
-<div class="callout-title">
-<div class="callout-title-icon">
-${getIcon(token, options)}
-</div>
-<div class="callout-title-inner">${getTitle(token, md)}</div>
-</div>
-<div class="callout-content">`;
+        <blockquote class="alert alert-${callout}">
+        <h3>${getTitle(token, md)}</h3>
+        `;
+
+        //         return `
+        // <div class="callout" data-callout="${callout}">
+        // <div class="callout-title">
+        // <div class="callout-title-icon">
+        // ${getIcon(token, options)}
+        // </div>
+        // <div class="callout-title-inner">${getTitle(token, md)}</div>
+        // </div>
+        // <div class="callout-content">`;
     }
     return "";
 }
@@ -200,7 +205,8 @@ export function renderCalloutPostfix(
         return "</div></details>";
         // biome-ignore lint/style/noUselessElse: callout can be false
     } else if (callout) {
-        return "</div></div>";
+        // return "</div></div>";
+        return "</blockquote>";
     }
     return "";
 }
